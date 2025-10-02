@@ -1,0 +1,58 @@
+{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "d9fdb583-fbcb-4ede-84cf-c224295f0868",
+            "flow": "xtls-rprx-vision",
+            "email": "Dan_1"
+          },
+          {
+            "id": "2fe4a0d9-84ad-4549-b06f-89d69dd36490",
+            "flow": "xtls-rprx-vision",
+            "email": "Dan"
+          },
+          {
+            "id": "updated id",
+            "flow": "updated flow on siteassa",
+            "email": "updated email"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.google.com:443",
+          "serverNames": [
+            "www.google.com"
+          ],
+          "privateKey": "YM8w9JjxnGCjOGbC0hkTwfzThAOABiQhwDDAnrD-nlc",
+          "shortIds": [
+            "16a23b347"
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    }
+  ],
+  "dns": {
+    "servers": [
+      {
+        "address": "127.0.0.1",
+        "port": 20053
+      }
+    ],
+    "queryStrategy": "UseIPv4",
+    "useSystemHosts": false
+  }
+}

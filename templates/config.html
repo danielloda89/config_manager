@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VPN Manager</title>
+    <link rel="stylesheet" href="/static/dark_glassmorphims.css">
+    <link rel="icon" type="image/x-icon" href="/static/herta.ico">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="/static/star-rail-kuru.gif" alt="cool animation" width="60" height="60">
+        <h1>VPN Clients</h1>
+        <p class="lead">Manage dynamic list of VPN clients</p>
+        <div class="controls">
+            <button id="btnAdd" class="btn">Add client</button>
+            <button id="btnSave" class="btn save-btn">Save All</button>
+            <button id="btnClear" class="btn ghost">Clear all</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <div id="clientsList" class="list" aria-live="polite"></div>
+            <div id="empty" class="empty">No clients yet — add one</div>
+        </section>
+    </main>
+</div>
+<div class="modal" id="clientModal" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h3 id="modalTitle">Add/Edit Client</h3>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <label for="modalId">ID</label>
+      <input type="text" id="modalId" placeholder="Enter client ID">
+
+      <label for="modalFlow">Flow</label>
+      <input type="text" id="modalFlow" placeholder="Enter client flow">
+
+      <label for="modalEmail">Email</label>
+      <input type="text" id="modalEmail" placeholder="Enter client email">
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" id="modalCancel">Cancel</button>
+      <button class="btn save-btn" id="modalSave">Save</button>
+    </div>
+  </div>
+</div>
+<script>
+    // Inject backend clients
+    window.backendClients = JSON.parse('{{ clients | tojson | safe }}');
+</script>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Access Protocol — Stark Industries</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="ironman-theme">
+    <!-- Animated background elements -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- Arc Reactor Glow -->
+    <div class="arc-reactor-glow"></div>
+    
+    <div class="container" style="display:flex;justify-content:center;align-items:center;height:100vh;position:relative;z-index:10;">
+        <div class="login-card stark-card">
+            <!-- Stark Industries Header -->
+            <div class="stark-header">
+                <div class="stark-logo">
+                    <div class="arc-reactor">
+                        <div class="reactor-core"></div>
+                        <div class="reactor-ring"></div>
+                        <div class="reactor-glow"></div>
+                    </div>
+                </div>
+                <h1 class="stark-title">STARK INDUSTRIES</h1>
+                <p class="system-name">Secure Access Protocol</p>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="stark-form">
+                <div class="input-field">
+                    <div class="input-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <input type="text" id="username" name="username" placeholder="USER ID" required />
+                    <div class="input-underline"></div>
+                </div>
+                
+                <div class="input-field">
+                    <div class="input-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <input type="password" id="password" name="password" placeholder="ACCESS CODE" required />
+                    <div class="input-underline"></div>
+                </div>
+                
+                <button type="submit" class="btn stark-btn">
+                    <span class="btn-text">INITIATE PROTOCOL</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </form>
+            
+            <div id="error" class="error-message"></div>
+            
+            <!-- System Status -->
+            <div class="system-status">
+                <div class="status-indicator">
+                    <div class="status-light"></div>
+                    <span>SYSTEM ONLINE</span>
+                </div>
+                <div class="version">v4.0.1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JS at the end -->
+    <script src="/static/login.js"></script>
+    
+    <!-- Additional Iron Man Theme JS -->
+    <script>
+        // Particle animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const randomX = Math.random() * 100;
+                const randomY = Math.random() * 100;
+                const randomSize = Math.random() * 4 + 1;
+                const randomDuration = Math.random() * 20 + 10;
+                
+                particle.style.left = `${randomX}%`;
+                particle.style.top = `${randomY}%`;
+                particle.style.width = `${randomSize}px`;
+                particle.style.height = `${randomSize}px`;
+                particle.style.animationDuration = `${randomDuration}s`;
+            });
+            
+            // Input focus effects
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (this.value === '') {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+            });
+            
+            // Button hover effect
+            const button = document.querySelector('.stark-btn');
+            button.addEventListener('mouseenter', function() {
+                this.classList.add('hover');
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.classList.remove('hover');
+            });
+        });
+    </script>
+</body>
+</html>

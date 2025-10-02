@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Man Dashboard</title>
+    <link rel="stylesheet" href="/static/ironstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">
+                <h1>STARK INDUSTRIES</h1>
+                <p>Advanced Systems Dashboard</p>
+            </div>
+            <div class="user-info">
+                <div class="avatar">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='20' fill='%23CC0000'/%3E%3Cpath d='M30,70 Q50,85 70,70 L70,95 L30,95 Z' fill='%23CC0000'/%3E%3C/svg%3E" alt="Iron Man Avatar">
+                </div>
+                <div class="user-details">
+                    <span class="username">Tony Stark</span>
+                    <span class="status">Online</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <ul>
+                        <li class="active"><a href="#"><span class="icon">⚡</span> Suit Status</a></li>
+                        <li><a href="#"><span class="icon">🛰️</span> Global Monitoring</a></li>
+                        <li><a href="#"><span class="icon">🔋</span> Power Systems</a></li>
+                        <li><a href="#"><span class="icon">🛡️</span> Defense Systems</a></li>
+                        <li><a href="#"><span class="icon">🚀</span> Flight Systems</a></li>
+                        <li><a href="#"><span class="icon">🧠</span> J.A.R.V.I.S.</a></li>
+                        <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="main-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🛡️</div>
+                        <div class="stat-info">
+                            <h3>Armor Integrity</h3>
+                            <span class="stat-value">97%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔋</div>
+                        <div class="stat-info">
+                            <h3>Arc Reactor</h3>
+                            <span class="stat-value">84%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚀</div>
+                        <div class="stat-info">
+                            <h3>Flight Systems</h3>
+                            <span class="stat-value">Online</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-info">
+                            <h3>Targeting Systems</h3>
+                            <span class="stat-value">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-row">
+                    <div class="content-card large">
+                        <h2>Suit Status</h2>
+                        <div class="suit-visual">
+                            <div class="suit-outline">
+                                <div class="suit-part head active"></div>
+                                <div class="suit-part torso active"></div>
+                                <div class="suit-part left-arm active"></div>
+                                <div class="suit-part right-arm active"></div>
+                                <div class="suit-part left-leg active"></div>
+                                <div class="suit-part right-leg active"></div>
+                            </div>
+                        </div>
+                        <div class="suit-stats">
+                            <div class="suit-stat">
+                                <span class="label">Repulsors:</span>
+                                <span class="value">100%</span>
+                            </div>
+                            <div class="suit-stat">
+                                <span class="label">Unibeam:</span>
+                                <span class="value">Charged</span>
+                            </div>
+                            <div class="suit-stat">
+                                <span class="label">Flight Systems:</span>
+                                <span class="value">Optimal</span>
+                            </div>
+                            <div class="suit-stat">
+                                <span class="label">Life Support:</span>
+                                <span class="value">Stable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Weapons Systems</h2>
+                        <div class="weapon-list">
+                            <div class="weapon-item">
+                                <span class="weapon-name">Repulsors</span>
+                                <div class="weapon-status online"></div>
+                            </div>
+                            <div class="weapon-item">
+                                <span class="weapon-name">Unibeam</span>
+                                <div class="weapon-status online"></div>
+                            </div>
+                            <div class="weapon-item">
+                                <span class="weapon-name">Micro-Missiles</span>
+                                <div class="weapon-status online"></div>
+                            </div>
+                            <div class="weapon-item">
+                                <span class="weapon-name">Flares</span>
+                                <div class="weapon-status online"></div>
+                            </div>
+                            <div class="weapon-item">
+                                <span class="weapon-name">Laser Cutters</span>
+                                <div class="weapon-status online"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-row">
+                    <div class="content-card">
+                        <h2>J.A.R.V.I.S. Status</h2>
+                        <div class="jarvis-status">
+                            <div class="ai-avatar">
+                                <div class="ai-glow"></div>
+                            </div>
+                            <div class="ai-info">
+                                <h3>Just A Rather Very Intelligent System</h3>
+                                <p>All systems operational. No anomalies detected.</p>
+                            </div>
+                        </div>
+                        <div class="ai-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Processing Power</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Memory Usage</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Network Latency</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 15%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Mission Log</h2>
+                        <div class="mission-log">
+                            <div class="log-entry">
+                                <span class="log-time">14:32</span>
+                                <span class="log-message">Flight systems calibrated</span>
+                            </div>
+                            <div class="log-entry">
+                                <span class="log-time">14:25</span>
+                                <span class="log-message">Weapons systems online</span>
+                            </div>
+                            <div class="log-entry">
+                                <span class="log-time">14:18</span>
+                                <span class="log-message">Arc reactor operating at 84% capacity</span>
+                            </div>
+                            <div class="log-entry">
+                                <span class="log-time">14:10</span>
+                                <span class="log-message">Suit integrity check completed</span>
+                            </div>
+                            <div class="log-entry">
+                                <span class="log-time">14:05</span>
+                                <span class="log-message">J.A.R.V.I.S. diagnostic initiated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Global Threats</h2>
+                        <div class="threat-level">
+                            <div class="threat-indicator">
+                                <div class="threat-gauge">
+                                    <div class="threat-needle"></div>
+                                </div>
+                                <span class="threat-label">LOW</span>
+                            </div>
+                        </div>
+                        <div class="threat-list">
+                            <div class="threat-item">
+                                <span class="threat-name">Unknown Activity - Eastern Europe</span>
+                                <span class="threat-priority low">Low Priority</span>
+                            </div>
+                            <div class="threat-item">
+                                <span class="threat-name">Energy Signature - Pacific Ocean</span>
+                                <span class="threat-priority medium">Monitoring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactivity for suit parts
+        document.querySelectorAll('.suit-part').forEach(part => {
+            part.addEventListener('click', function() {
+                this.classList.toggle('active');
+                this.classList.toggle('warning');
+            });
+        });
+    </script>
+</body>
+</html>

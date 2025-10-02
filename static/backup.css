@@ -1,0 +1,332 @@
+/* =============================
+   THEME VARIABLES
+============================= */
+:root {
+  --bg: #0d0d1a;
+  --card: rgba(255, 255, 255, 0.06);
+  --muted: #b5bfd9;
+  --accent: #00f5ff;
+  --danger: #ff4d6d;
+  --glass: rgba(255, 255, 255, 0.12);
+
+  --blur: 14px;
+  --radius: 16px;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* =============================
+   GLOBAL
+============================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #0d0d1a 0%, #1a1038 40%, #000 100%);
+  color: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* =============================
+   HEADER
+============================= */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.lead {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.controls {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+}
+
+/* =============================
+   BUTTONS
+============================= */
+.btn {
+  background: var(--accent);
+  border: none;
+  color: #0a0a0a;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 245, 255, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 245, 255, 0.4);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  box-shadow: none;
+}
+
+.btn.ghost:hover {
+  background: rgba(0, 245, 255, 0.05);
+}
+
+/* Save button (accent highlight) */
+.save-btn {
+  background: linear-gradient(135deg, #00f5ff, #3fddf9);
+  color: #0a0a0a;
+}
+
+/* =============================
+   CARDS / LIST
+============================= */
+.card {
+  background: var(--card);
+  backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.client:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.meta {
+  flex: 1;
+}
+
+.name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.action-btn.danger {
+  border-color: rgba(255, 77, 109, 0.4);
+  color: var(--danger);
+}
+
+/* =============================
+   MODAL
+============================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal-dialog {
+  position: relative;
+  z-index: 20;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  max-width: 480px;
+  width: 100%;
+  backdrop-filter: blur(var(--blur));
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-body {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.modal-body label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal-body input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+}
+
+.modal-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* =============================
+   LOGIN CARD
+============================= */
+.login-card {
+  background: var(--card);
+  backdrop-filter: blur(var(--blur));
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 360px;
+  text-align: center;
+}
+
+.login-card h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.login-card .lead {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-card input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.login-card button {
+  width: 100%;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .controls {
+    margin-left: 0;
+  }
+  .login-card {
+    width: 100%;
+    padding: 30px 20px;
+  }
+}

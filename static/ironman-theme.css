@@ -1,0 +1,530 @@
+/* =============================
+   IRON MAN THEME - STARK INDUSTRIES
+============================= */
+:root {
+  --stark-red: #ff1e1e;
+  --stark-gold: #ffd700;
+  --stark-dark-red: #cc0000;
+  --stark-dark: #0a0a0f;
+  --stark-darker: #050508;
+  --stark-metal: #2a2a35;
+  --stark-light: #e6e6e6;
+  --stark-glow: #ff4444;
+  --stark-blue: #00a8ff;
+  
+  --blur: 15px;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(255, 30, 30, 0.2);
+}
+
+/* =============================
+   GLOBAL STYLES
+============================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.ironman-theme {
+  font-family: 'Exo 2', 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, var(--stark-darker) 0%, var(--stark-dark) 50%, #1a0a0a 100%);
+  color: var(--stark-light);
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Animated Background */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: var(--stark-red);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 20s infinite linear;
+}
+
+.particle:nth-child(2n) {
+  background: var(--stark-gold);
+  animation-delay: -5s;
+}
+
+.particle:nth-child(3n) {
+  background: var(--stark-blue);
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px);
+  }
+}
+
+/* Arc Reactor Glow Effect */
+.arc-reactor-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 30, 30, 0.1) 0%, rgba(255, 30, 30, 0) 70%);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: reactor-pulse 4s ease-in-out infinite;
+}
+
+@keyframes reactor-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* =============================
+   CONTAINER
+============================= */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* =============================
+   STARK LOGIN CARD
+============================= */
+.login-card.stark-card {
+  background: rgba(42, 42, 53, 0.7);
+  backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius);
+  box-shadow: 
+    var(--shadow),
+    0 0 0 1px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 40px 35px;
+  width: 420px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 30, 30, 0.2);
+}
+
+.login-card.stark-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--stark-gold), var(--stark-red), var(--stark-gold));
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =============================
+   STARK HEADER
+============================= */
+.stark-header {
+  margin-bottom: 30px;
+}
+
+.stark-logo {
+  margin-bottom: 15px;
+}
+
+.arc-reactor {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reactor-core {
+  width: 25px;
+  height: 25px;
+  background: var(--stark-red);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px var(--stark-red),
+    0 0 40px var(--stark-red),
+    inset 0 0 10px var(--stark-gold);
+  animation: core-pulse 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+.reactor-ring {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--stark-gold);
+  border-radius: 50%;
+  animation: ring-rotate 10s linear infinite;
+}
+
+.reactor-ring::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--stark-red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--stark-red);
+}
+
+.reactor-glow {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255, 30, 30, 0.2) 0%, rgba(255, 30, 30, 0) 70%);
+  border-radius: 50%;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes core-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 20px var(--stark-red),
+      0 0 40px var(--stark-red),
+      inset 0 0 10px var(--stark-gold);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 
+      0 0 30px var(--stark-red),
+      0 0 60px var(--stark-red),
+      inset 0 0 15px var(--stark-gold);
+  }
+}
+
+@keyframes ring-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.stark-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--stark-light);
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 30, 30, 0.5);
+}
+
+.system-name {
+  font-size: 14px;
+  color: var(--stark-gold);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* =============================
+   STARK FORM
+============================= */
+.stark-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.input-field {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--stark-gold);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  background: rgba(10, 10, 15, 0.7);
+  color: var(--stark-light);
+  font-family: 'Exo 2', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.input-field input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.input-field input:focus {
+  outline: none;
+  border-color: var(--stark-red);
+  background: rgba(15, 15, 20, 0.9);
+  box-shadow: 
+    0 0 15px rgba(255, 30, 30, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+.input-field.focused .input-icon {
+  color: var(--stark-red);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.input-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--stark-red), var(--stark-gold));
+  transition: width 0.3s ease;
+  z-index: 2;
+}
+
+.input-field.focused .input-underline {
+  width: 100%;
+}
+
+/* =============================
+   STARK BUTTON
+============================= */
+.btn.stark-btn {
+  background: linear-gradient(135deg, var(--stark-red), var(--stark-dark-red));
+  border: none;
+  color: var(--stark-light);
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 
+    0 4px 15px rgba(255, 30, 30, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn.stark-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn.stark-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(255, 30, 30, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn.stark-btn:hover::before {
+  left: 100%;
+}
+
+.btn.stark-btn.hover {
+  animation: button-pulse 0.5s ease;
+}
+
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 30, 30, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn.stark-btn:hover .btn-glow {
+  opacity: 1;
+}
+
+/* =============================
+   ERROR MESSAGE
+============================= */
+.error-message {
+  color: var(--stark-red);
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 15px;
+  text-align: center;
+  min-height: 20px;
+  text-shadow: 0 0 10px rgba(255, 30, 30, 0.5);
+}
+
+/* =============================
+   SYSTEM STATUS
+============================= */
+.system-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--stark-gold);
+  font-weight: 500;
+}
+
+.status-light {
+  width: 8px;
+  height: 8px;
+  background: var(--stark-red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--stark-red);
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--stark-red);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 5px var(--stark-red);
+  }
+}
+
+.version {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* =============================
+   RESPONSIVE DESIGN
+============================= */
+@media (max-width: 640px) {
+  .login-card.stark-card {
+    width: 100%;
+    padding: 30px 25px;
+    margin: 20px;
+  }
+  
+  .stark-title {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .arc-reactor {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .reactor-core {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .reactor-ring {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .system-status {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* Loading animation for form submission */
+.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.loading .btn-text::after {
+  content: '...';
+  animation: loading-dots 1.5s infinite;
+}
+
+@keyframes loading-dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}

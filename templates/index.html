@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login — VPN Manager</title>
+    <link rel="icon" type="image/x-icon" href="/static/herta.ico">
+    <link rel="stylesheet" href="/static/dark_glassmorphims.css">
+</head>
+<body>
+    <div class="container" style="display:flex;justify-content:center;align-items:center;height:100vh;">
+        <div class="login-card">
+            <div><h1>Login</h1>
+            <img src="/static/star-rail-kuru.gif" alt="cool animation" width="90" height="90"></div>
+            
+            <p class="lead">Enter your username and password</p>
+            <form id="loginForm">
+                <input type="text" id="username" name="username" placeholder="Username" required />
+                <input type="password" id="password" name="password" placeholder="Password" required />
+                <button type="submit" class="btn save-btn">Login</button>
+            </form>
+            <div id="error" style="color:var(--danger);margin-top:10px;"></div>
+        </div>
+    </div>
+
+    <!-- Load JS at the end -->
+    <script src="/static/login.js"></script>
+</body>
+</html>
