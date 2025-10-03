@@ -1,18 +1,18 @@
 {
   "inbounds": [
     {
-      "port": 443,
+      "port": 4123,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "d9fdb583-fbcb-4ede-84cf-c224295f0868",
-            "flow": "xtls-rprx-vision",
+            "id": "test2",
+            "flow": "deasd",
             "email": "Dan_1"
           },
           {
-            "id": "2fe4a0d9-84ad-4549-b06f-89d69dd36490",
-            "flow": "xtls-rprx-vision",
+            "id": "test",
+            "flow": "test",
             "email": "Dan_balan"
           },
           {
@@ -24,16 +24,16 @@
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "tcp",
-        "security": "reality",
+        "network": "test",
+        "security": "test",
         "realitySettings": {
-          "dest": "www.google.com:443",
+          "dest": "test",
           "serverNames": [
             "www.google.com"
           ],
-          "privateKey": "YM8w9JjxnGCjOGbC0hkTwfzThAOABiQhwDDAnrD-nlc",
+          "privateKey": "test",
           "shortIds": [
-            "16a23b347"
+            "dsada"
           ]
         }
       }
@@ -42,17 +42,17 @@
   "outbounds": [
     {
       "tag": "direct",
-      "protocol": "freedom"
+      "protocol": "test"
     }
   ],
   "dns": {
     "servers": [
       {
-        "address": "127.0.0.1",
-        "port": 20053
+        "address": "test",
+        "port": 200
       }
     ],
-    "queryStrategy": "UseIPv4",
+    "queryStrategy": "test",
     "useSystemHosts": false
   }
 }
