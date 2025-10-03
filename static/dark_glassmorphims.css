@@ -365,3 +365,93 @@ h1 {
     justify-content: flex-end;
   }
 }
+
+/* Search Field */
+.search-input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(124, 224, 255, 0.3);
+  background: rgba(30, 30, 46, 0.6);
+  color: var(--text);
+  font-size: 15px;
+  backdrop-filter: blur(var(--blur));
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 224, 255, 0.15);
+  background: rgba(40, 40, 60, 0.8);
+}
+
+
+
+/* Notification container centered in viewport */
+.notification-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Base notification style */
+.notification {
+    background: rgba(60, 60, 90, 0.95); /* slightly lighter than page */
+    color: var(--text);
+    padding: 24px 36px;
+    border-radius: var(--radius);
+    min-width: 280px;
+    max-width: 90%;
+    text-align: center;
+    font-weight: 600;
+    backdrop-filter: blur(var(--blur));
+    box-shadow: 0 0 28px rgba(124, 224, 255, 0.25); /* subtle glow around */
+    animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-in 2.2s forwards; /* auto fade */
+}
+
+/* Success style */
+.notification.success {
+    border: 1px solid rgba(124, 224, 255, 0.3); /* subtle border for distinction */
+    box-shadow: 0 0 28px rgba(124, 224, 255, 0.35);
+}
+
+/* Error style */
+.notification.error {
+    border: 1px solid rgba(255, 107, 139, 0.3);
+    box-shadow: 0 0 28px rgba(255, 107, 139, 0.35);
+}
+
+/* Animations */
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Apply to notification */
+.notification {
+    animation: fadeInOut 2.5s ease forwards; /* total duration: 2.5s */
+}
+

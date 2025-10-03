@@ -13,12 +13,12 @@
           {
             "id": "2fe4a0d9-84ad-4549-b06f-89d69dd36490",
             "flow": "xtls-rprx-vision",
-            "email": "Dan"
+            "email": "Dan_balan"
           },
           {
-            "id": "updated id",
-            "flow": "updated flow on siteassa",
-            "email": "updated email"
+            "id": "idX-daniz",
+            "flow": "flowX-daniz",
+            "email": "emailX-danizs"
           }
         ],
         "decryption": "none"

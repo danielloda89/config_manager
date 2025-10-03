@@ -1,14 +1,15 @@
-from fastapi import APIRouter,Depends, Request,Form
+from fastapi import APIRouter,Depends, Request
 from fastapi.responses import HTMLResponse
-from api.core.jsonwork import Handler, Orhectr
-#from api.core.json_orchestr import Orhectr
-from api.models.configscheme import Config,ConfigItem,ReturnedConfig
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from api.security.config import security
+
 from typing import List
 
-from pydantic import BaseModel
+from api.core.jsonwork import Handler, Orhectr
+from api.models.configscheme import Config,ReturnedConfig
+from api.security.config import security
+
+
+
 
 config_router = APIRouter()
 #config_router.mount("/static", StaticFiles(directory="templates"), name="static")
@@ -43,4 +44,3 @@ async def post_config(payload:List[ReturnedConfig]):
 @config_router.get("/templates",response_class=HTMLResponse)
 async def page(request: Request):
     return templates.TemplateResponse(name="index.html",context={"request":request,})
-

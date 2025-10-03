@@ -9,6 +9,8 @@
 </head>
 <body>
 <div class="container">
+
+    <div id="notificationContainer" class="notification-container"></div>
     <header>
         <img src="/static/star-rail-kuru.gif" alt="cool animation" width="60" height="60">
         <h1>VPN Clients</h1>
@@ -22,6 +24,7 @@
 
     <main>
         <section class="card">
+            <input type="text" id="searchField" placeholder="Serach by Id,Flow or Email..." class="search-input">
             <div id="clientsList" class="list" aria-live="polite"></div>
             <div id="empty" class="empty">No clients yet — add one</div>
         </section>

@@ -17,27 +17,54 @@ const modalClose = document.getElementById('modalClose');
 const modalCancel = document.getElementById('modalCancel');
 const modalSave = document.getElementById('modalSave');
 
+
+
+const searchField = document.getElementById('searchField');
+if (searchField) {
+    searchField.addEventListener('input', () => {
+        render();
+    });
+}
+
+
 let clients = window.backendClients?.clients || [];
 let changes = []; // Tracks {operation, data} for sending
 let editIndex = null; // null means creating new
 
 // --- Render function ---
+
+// --- Render function with search ---
 function render() {
     clientsList.innerHTML = '';
-    if (clients.length === 0) {
+
+    const query = searchField?.value?.trim().toLowerCase();
+
+    // Attach original index while filtering
+    const filteredClients = clients
+        .map((client, idx) => ({ client, originalIndex: idx }))
+        .filter(({ client }) => {
+            if (!query) return true;
+            return (
+                client.id.toLowerCase().includes(query) ||
+                client.flow.toLowerCase().includes(query) ||
+                client.email.toLowerCase().includes(query)
+            );
+        });
+
+    if (filteredClients.length === 0) {
         if (empty) empty.style.display = 'block';
         return;
     }
     if (empty) empty.style.display = 'none';
 
-    clients.forEach((client, index) => {
+    filteredClients.forEach(({ client, originalIndex }) => {
         const el = document.createElement('div');
         el.className = 'client';
         el.innerHTML = `
             <div class="meta">
-                <div class="name">${client.id}</div>
+                <div class="name">${client.email}</div>
                 <div class="small">
-                    Flow: ${client.flow} | Email: ${client.email}
+                    Flow: ${client.flow} | ID: ${client.id}
                 </div>
             </div>
             <div class="actions">
@@ -45,12 +72,14 @@ function render() {
                 <button class="action-btn danger remove-btn">Remove</button>
             </div>
         `;
+
         clientsList.appendChild(el);
 
         // Edit button
         el.querySelector('.edit-btn').addEventListener('click', () => {
-            editIndex = index;
+            editIndex = originalIndex; // original index in full array
             modalTitle.textContent = "Edit Client";
+            client.oldid = client.id; // store old id
             modalId.value = client.id;
             modalFlow.value = client.flow;
             modalEmail.value = client.email;
@@ -61,12 +90,13 @@ function render() {
         el.querySelector('.remove-btn').addEventListener('click', () => {
             if (confirm("Delete this client?")) {
                 changes.push({ operation: 'd', data: client });
-                clients.splice(index, 1);
+                clients.splice(originalIndex, 1); // remove from original array
                 render();
             }
         });
     });
 }
+
 
 // --- Modal functions ---
 function closeModal() {
@@ -89,6 +119,7 @@ if (btnAdd) {
         modalFlow.value = '';
         modalEmail.value = '';
         modal.setAttribute("aria-hidden", "false");
+        console.log(client.email)
     });
 }
 
@@ -106,7 +137,10 @@ modalSave.addEventListener('click', () => {
 
     if (editIndex !== null) {
         // Edit existing
-        changes.push({ operation: 'e', data: newClient });
+        const targetId = clients[editIndex].id
+        console.log(clients[editIndex].id)
+        
+        changes.push({ operation: 'e', data: newClient, target_id:targetId});
         clients[editIndex] = newClient;
     } else {
         // Add new
@@ -128,11 +162,33 @@ if (btnClear) {
     });
 }
 
+
+
+
+
+const notificationContainer = document.getElementById('notificationContainer');
+
+function showNotification(message, type = 'success', duration = 3000) {
+    if (!notificationContainer) return;
+
+    const notif = document.createElement('div');
+    notif.className = `notification ${type}`;
+    notif.textContent = message;
+    notificationContainer.appendChild(notif);
+
+    setTimeout(() => {
+        notif.remove();
+    }, duration);
+}
+
+
+
+
 // --- Save all changes to backend ---
 if (btnSave) {
     btnSave.addEventListener('click', async () => {
         if (changes.length === 0) {
-            alert("No changes to save!");
+            showNotification("No changes to save!");
             return;
         }
 
@@ -146,17 +202,17 @@ if (btnSave) {
             });
 
             if (!response.ok) {
-                alert("Failed to save changes");
+                showNotification("Failed to save changes");
                 return;
             }
 
             const data = await response.json();
             console.log("Server response:", data);
-            alert("Changes saved!");
+            showNotification("Changes saved!");
             changes = []; // reset change tracker
         } catch (err) {
             console.error("Error saving changes:", err);
-            alert("Error saving changes");
+            showNotification("Error saving changes");
         }
     });
 }

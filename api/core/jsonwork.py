@@ -1,8 +1,6 @@
 import json 
 from pathlib import Path
 from typing import List,Dict
-import enum
-import asyncio
 import aiofiles
 # Path to this file (jsonwork.py)
 
@@ -90,10 +88,11 @@ class Orhectr():
 
     async def proccessing(self):
         for element in self.payload:
+            print(element.target_id)
             if element.operation == 'a':
                 print("-----------addition-------------\n",element.data)
                 await self.handler.add(element.data)
             if element.operation == 'd':
                 await self.handler.delete(element.data["id"])
             if element.operation == 'e':
-                await self.handler.update(str(element.data["id"]),element.data)
+                await self.handler.update(element.target_id,element.data)
