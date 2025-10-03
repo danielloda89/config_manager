@@ -51,32 +51,6 @@ class Handler():
                 print(data["inbounds"][0]["settings"]["clients"])
         await self.post_data(data)
                 
-        
-
-
-
-
-
-
-
-"""async def main():
-    new_obj = Handler()
-    x = await new_obj.get_data()
-    x_new = x["inbounds"][0]["settings"]["clients"]
-    test_input_for_update = {"id":"updated id","flow":"updated flow","email":"updated email"}
-    print(x)
-    print(x_new)
-    print(test_input_for_update)
-    print("data_to_update type:", type(test_input_for_update))
-    print("data_to_update contents:", test_input_for_update)
-    print("data_to_update keys:", test_input_for_update.keys())
-    #await new_obj.add({'id': 'test_id', 'flow': 'test_flow', 'email': 'test_email'})
-    #await new_obj.delete(delete_id="test")
-    await new_obj.update("test_id",test_input_for_update)
-
-asyncio.run(main())"""
-
-
 
 class Orhectr():
     def __init__(self, payload : List):
@@ -96,3 +70,4 @@ class Orhectr():
                 await self.handler.delete(element.data["id"])
             if element.operation == 'e':
                 await self.handler.update(element.target_id,element.data)
+
